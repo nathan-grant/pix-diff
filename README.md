@@ -3,6 +3,8 @@ Pix-Diff
 
 A lightweight protractor plugin for image comparison
 
+[![NPM](https://nodei.co/npm/pix-diff.png)](https://nodei.co/npm/pix-diff/)
+
 ##Installation
 
 Install this module locally with the following command:
@@ -22,12 +24,11 @@ The package can be used directly in individual tests or via ```onPrepare``` in t
 
 **Example:**
 ```javascript
-var PixDiff = require('pix-diff');
-
 exports.config = {
    // your config here ...
 
     onPrepare: function() {
+        var PixDiff = require('pix-diff');
         browser.pixdiff = new PixDiff(
             {
                 basePath: 'path/to/screenshots/',
