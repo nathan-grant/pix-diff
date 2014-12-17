@@ -1,4 +1,5 @@
 var BlinkDiff = require('blink-diff'),
+    PNGImage = require('png-image'),
     assert = require('assert'),
     path = require('path'),
     util = require('util');
@@ -65,11 +66,70 @@ PixDiff.prototype = {
     },
 
     /**
+     * Saves an image of the screen
+     *
+     * @method saveScreen
+     * @example
+     *     browser.pixdiff.saveScreen('imageA');
+     *
+     * @param {string} tag
+     * @public
+     */
+    saveScreen: function (tag) {
+        return this._flow.execute(function () {
+            return browser.takeScreenshot()
+                .then(function (image) {
+                    tag = util.format('%s-%s-%sx%s.png', tag, this._capabilities.browserName, this._width, this._height);
+                    return new PNGImage({
+                        imagePath: new Buffer(image, 'base64'),
+                        imageOutputPath: path.join(this._basePath, tag)
+                    }).runWithPromise();
+                }.bind(this));
+        }.bind(this));
+    },
+
+    /**
+     * Saves an image of the screen region
+     *
+     * @method saveRegion
+     * @example
+     *     browser.pixdiff.saveRegion(element(By.id('elementId')), 'imageA');
+     *
+     * @param {promise} element
+     * @param {string} tag
+     * @public
+     */
+    saveRegion: function (element, tag) {
+        var size,
+            rect;
+
+        return this._flow.execute(function () {
+            return element.getSize()
+                .then(function (elementSize) {
+                    size = elementSize;
+                    return element.getLocation();
+                })
+                .then(function (point) {
+                    rect = {height: size.height, width: size.width, x: point.x, y: point.y};
+                    return browser.takeScreenshot();
+                })
+                .then(function (image) {
+                    tag = util.format('%s-%s-%sx%s.png', tag, this._capabilities.browserName, this._width, this._height);
+                    return new PNGImage({
+                        imagePath: new Buffer(image, 'base64'),
+                        imageOutputPath: path.join(this._basePath, tag),
+                        cropImage: rect
+                    }).runWithPromise();
+                }.bind(this));
+        }.bind(this));
+    },
+
+    /**
      * Runs the comparison against the screen
      *
      * @method checkScreen
      * @example
-     *     browser.pixImage.checkScreen('imageA', {debug: true});
+     *     browser.pixdiff.checkScreen('imageA', {debug: true});
      *
      * @param {string} tag
      * @param {object} options
@@ -102,7 +162,7 @@ PixDiff.prototype = {
      *
      * @method checkRegion
      * @example
-     *     browser.pixImage.checkScreen(element(By.id('elementId')), 'imageA', {debug: true});
+     *     browser.pixdiff.checkRegion(element(By.id('elementId')), 'imageA', {debug: true});
      *
      * @param {promise} element
      * @param {string} tag

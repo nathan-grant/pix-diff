@@ -40,7 +40,7 @@ exports.config = {
 }
 ```
 
-PixDiff provides two comparison methods ```checkScreen``` and ```checkRegion``` along with two jasmine matchers ```toMatch``` and ```toNotMatch```.
+PixDiff provides two comparison methods ```checkScreen``` and ```checkRegion``` along with two jasmine matchers ```toMatch``` and ```toNotMatch```. Two helper methods ```saveScreen``` and ```saveRegion``` are provided for saving images.
 
 **Example:**
 ```javascript
@@ -123,6 +123,7 @@ Todo
 
 ###Dependencies
 * [blink-diff](https://github.com/yahoo/blink-diff)
+* [png-image](https://github.com/koola/png-image)
 
 ###Dev-Dependencies
 * [protractor](https://github.com/angular/protractor)
