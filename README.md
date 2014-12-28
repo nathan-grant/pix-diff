@@ -119,7 +119,10 @@ Todo
 
 ##Tests
 
-Todo
+Run the tests with the following command:
+```shell
+npm run test
+```
 
 ###Dependencies
 * [blink-diff](https://github.com/yahoo/blink-diff)
