@@ -129,6 +129,11 @@ npm run test
 * [png-image](https://github.com/koola/png-image)
 
 ###Dev-Dependencies
+* [grunt](https://github.com/gruntjs/grunt)
+* [grunt-cli](https://github.com/gruntjs/grunt-cli)
+* [grunt-contrib-clean](https://github.com/gruntjs/grunt-contrib-clean)
+* [grunt-protractor-runner](https://github.com/teerapap/grunt-protractor-runner)
+* [load-grunt-tasks](https://github.com/sindresorhus/load-grunt-tasks)
 * [protractor](https://github.com/angular/protractor)
 
 ##License
