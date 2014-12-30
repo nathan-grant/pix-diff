@@ -146,7 +146,7 @@ PixDiff.prototype = {
                     defaults = {
                         imageAPath: path.join(this._basePath, tag),
                         imageB: new Buffer(image, 'base64'),
-                        imageOutputPath: path.join(this._basePath, 'diff', tag),
+                        imageOutputPath: path.join(this._basePath, 'diff', path.basename(tag)),
                         imageOutputLimit: BlinkDiff.OUTPUT_DIFFERENT
                     };
                     return new BlinkDiff(this._mergeDefaultOptions(defaults, options)).runWithPromise();
@@ -190,7 +190,7 @@ PixDiff.prototype = {
                     defaults = {
                         imageAPath: path.join(this._basePath, tag),
                         imageB: new Buffer(image, 'base64'),
-                        imageOutputPath: path.join(this._basePath, 'diff', tag),
+                        imageOutputPath: path.join(this._basePath, 'diff', path.basename(tag)),
                         imageOutputLimit: BlinkDiff.OUTPUT_DIFFERENT,
                         cropImageB: rect
                     };
