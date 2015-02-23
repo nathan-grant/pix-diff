@@ -7,7 +7,10 @@ exports.config = {
     specs: ['*.spec.js'],
 
     capabilities: {
-        browserName: 'chrome'
+        browserName: 'chrome',
+        chromeOptions: {
+            args: ['--no-sandbox']
+        }
     },
 
     onPrepare: function() {
