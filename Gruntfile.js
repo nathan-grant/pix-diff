@@ -6,10 +6,16 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
 
-        clean: [
-            'test/screenshots/diff/*.png',
-            'test/screenshots/example-page*.png'
-        ],
+        clean: {
+            screens: {
+                src: [
+                    "test/screenshots/*",
+                    "!test/screenshots/diff/**",
+                    "!test/screenshots/example-fail*.png",
+                    "test/screenshots/diff/*.png"
+                ]
+            }
+        },
 
         protractor: {
             test: {
@@ -22,6 +28,6 @@ module.exports = function(grunt) {
     });
 
     //tasks
-    grunt.registerTask('test', 'Run integration tests', ['clean', 'protractor:test']);
+    grunt.registerTask('test', 'Run integration tests', ['clean:screens', 'protractor:test']);
     grunt.registerTask('default', ['test']);
 };

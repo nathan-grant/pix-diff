@@ -3,6 +3,9 @@ Pix-Diff
 
 A lightweight protractor plugin for image comparison
 
+[![Build Status](https://travis-ci.org/koola/pix-diff.svg)](https://travis-ci.org/koola/pix-diff)
+[![npm version](https://badge.fury.io/js/pix-diff.svg)](http://badge.fury.io/js/pix-diff)
+
 [![NPM](https://nodei.co/npm/pix-diff.png)](https://nodei.co/npm/pix-diff/)
 
 ##Installation

@@ -1,7 +1,7 @@
 Changelog
 =========
 
-v1.0.4 - Bug fix: Failure when using subdirectories under base path (30/12/2014)
+v1.0.4 - Fix writing diff when sub-directories are under base path (30/12/2014)
 
 v1.0.3 - Added tests (28/12/2014)
 

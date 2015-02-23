@@ -2,15 +2,13 @@
 
 exports.config = {
 
-    specs: [
-        '*.spec.js'
-    ],
+    baseUrl: 'http://www.example.com',
+
+    specs: ['*.spec.js'],
 
     capabilities: {
         browserName: 'chrome'
     },
-
-    baseUrl: 'http://www.example.com',
 
     onPrepare: function() {
         var PixDiff = require('../');
