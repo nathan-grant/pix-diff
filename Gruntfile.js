@@ -17,17 +17,18 @@ module.exports = function(grunt) {
             }
         },
 
-        protractor: {
-            test: {
-                options: {
-                    configFile: 'test/protractor.conf.js'
-                }
+        run: {
+            protractor: {
+                cmd: 'node_modules/.bin/protractor',
+                args: [
+                    'test/protractor.conf.js'
+                ]
             }
         }
 
     });
 
     //tasks
-    grunt.registerTask('test', 'Run integration tests', ['clean:screens', 'protractor:test']);
+    grunt.registerTask('test', 'Run integration tests', ['clean:screens', 'run:protractor']);
     grunt.registerTask('default', ['test']);
 };
