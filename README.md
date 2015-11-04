@@ -43,7 +43,7 @@ exports.config = {
 }
 ```
 
-PixDiff provides two comparison methods ```checkScreen``` and ```checkRegion``` along with two jasmine matchers ```toMatch``` and ```toNotMatch```. Two helper methods ```saveScreen``` and ```saveRegion``` are provided for saving images.
+PixDiff provides two comparison methods ```checkScreen``` and ```checkRegion``` along with two jasmine matchers ```toMatchScreen``` and ```toNotMatchScreen```. Two helper methods ```saveScreen``` and ```saveRegion``` are provided for saving images.
 
 **Example:**
 ```javascript
@@ -54,21 +54,21 @@ describe("Example page", function() {
     });
 
     it("should match the page", function () {
-        expect(browser.pixdiff.checkScreen('example-page')).toMatch();
+        expect(browser.pixdiff.checkScreen('example-page')).toMatchScreen();
     });
 
     it("should not match the page", function () {
         element(By.buttonText('yes')).click();
-        expect(browser.pixdiff.checkScreen('example-page')).toNotMatch();
+        expect(browser.pixdiff.checkScreen('example-page')).toNotMatchScreen();
     });
 
     it("should match the title", function () {
-        expect(browser.pixdiff.checkRegion(element(By.id('title')), 'example-page-title')).toMatch();
+        expect(browser.pixdiff.checkRegion(element(By.id('title')), 'example-page-title')).toMatchScreen();
     });
 
     it("should match the title", function () {
         expect(browser.pixdiff.checkRegion(element(By.id('title')), 'example-page-title', {
-            blockOut: {x: 10, y: 132, width: 100, height: 50}})).toMatch();
+            blockOut: {x: 10, y: 132, width: 100, height: 50}})).toMatchScreen();
     });
 });
 ```

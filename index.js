@@ -208,7 +208,7 @@ PixDiff.prototype = {
  */
 (function() {
     var v1 = {
-            toMatch: function() {
+            toMatchScreen: function() {
                 var result = this.actual,
                     percent = +((result.differences / result.dimension) * 100).toFixed(2);
                 this.message = function() {
@@ -217,7 +217,7 @@ PixDiff.prototype = {
                 return ((result.code === BlinkDiff.RESULT_IDENTICAL) || (result.code === BlinkDiff.RESULT_SIMILAR));
             },
 
-            toNotMatch: function() {
+            toNotMatchScreen: function() {
                 var result = this.actual;
                 this.message = function() {
                     return "Image is identical or near identical";
@@ -226,7 +226,7 @@ PixDiff.prototype = {
             }
         },
         v2 = {
-            toMatch: function() {
+            toMatchScreen: function() {
                 return {
                     compare: function(actual, expected) {
                         var percent = +((actual.differences / actual.dimension) * 100).toFixed(2);
@@ -238,7 +238,7 @@ PixDiff.prototype = {
                 }
             },
 
-            toNotMatch: function() {
+            toNotMatchScreen: function() {
                 return {
                     compare: function(actual, expected) {
                         return {
