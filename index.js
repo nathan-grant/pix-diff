@@ -110,7 +110,7 @@ PixDiff.prototype = {
                     return element.getLocation();
                 })
                 .then(function(point) {
-                    rect = {height: size.height, width: size.width, x: point.x, y: point.y};
+                    rect = {height: size.height, width: size.width, x: Math.floor(point.x), y: Math.floor(point.y)};
                     return browser.takeScreenshot();
                 })
                 .then(function(image) {
@@ -182,7 +182,7 @@ PixDiff.prototype = {
                     return element.getLocation();
                 })
                 .then(function(point) {
-                    rect = {height: size.height, width: size.width, x: point.x, y: point.y};
+                    rect = {height: size.height, width: size.width, x: Math.floor(point.x), y: Math.floor(point.y)};
                     return browser.takeScreenshot();
                 })
                 .then(function(image) {
