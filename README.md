@@ -143,4 +143,4 @@ npm run test
 
 The MIT License
 
-Copyright 2015 Koola.
+Copyright 2016 Koola.

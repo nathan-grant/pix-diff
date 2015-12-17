@@ -1,5 +1,7 @@
 Changelog
 =========
+v1.0.7 - Merged PR #5 to resolve issue on SauceLabs (18/12/2015)
+
 v1.0.6 - Rename custom matchers to avoid naming conflict with Jasmine toMatch (04/11/2015)
 
 v1.0.5 - Add Jasmine 2 custom matchers (10/07/2015)
